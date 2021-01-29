@@ -4,14 +4,39 @@ A character moves with walls
 You can see what is in your light
 You have to guide a ray of light to the exit using mirrors
 
-TODO:
+AMBIENCE:
+Cave? Building with lights off? Noir movie?
+
+
+GAME MECHANICS
+- flashlight
+- mirror and ray
+
+- refractor?
+- diffractor?
+- HP dependent or time dependent flashlight
+- "life crystal"
+- "color" mechanics
+
+//TODO:
 
 - get in touch with Unity (Guillaume, Liam)
 
 BASE
-- have a character that moves, with wall collisions
+- have a character that moves (along x xor y only at the beginning), with wall collisions
 - have a light that lights different areas
 - physics of the light ray guided by mirrors
 - interaction between player and mirrors
 - victory condition
 
+
+
+
+
+SOUND PART
+.wav OK
+- sound of footsteps
+- sound of wall collision and mirror collision
+- sound of moving mirror
+- level theme (with subtracks for close ennemy, close light ray, low life...)
+- victory theme
