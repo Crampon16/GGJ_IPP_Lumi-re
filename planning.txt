@@ -1,0 +1,17 @@
+2D gameplay
+
+A character moves with walls
+You can see what is in your light
+You have to guide a ray of light to the exit using mirrors
+
+TODO:
+
+- get in touch with Unity (Guillaume, Liam)
+
+BASE
+- have a character that moves, with wall collisions
+- have a light that lights different areas
+- physics of the light ray guided by mirrors
+- interaction between player and mirrors
+- victory condition
+
