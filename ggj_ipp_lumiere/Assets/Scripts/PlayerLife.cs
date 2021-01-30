@@ -84,7 +84,7 @@ public class PlayerLife : MonoBehaviour
         // If any of the lights gets lower than certain threshold
         if (pointLight.intensity < deathLimit || directionalLight.intensity < deathLimit)
         {
-            Debug.Log("Died!");
+            //Debug.Log("Died!");
 
             // Lights out
             pointLight.intensity = 0f;
