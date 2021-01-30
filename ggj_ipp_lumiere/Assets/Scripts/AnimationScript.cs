@@ -37,8 +37,14 @@ public class AnimationScript : MonoBehaviour {
 
         if (isLight)
         {
-            Material mymat = GetComponent<Renderer>().material;
-            /*mymat._EMISSION = true;*/
+            GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            GetComponentInChildren<Light>().enabled = true;
+        }
+
+        else
+        {
+            GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            GetComponentInChildren<Light>().enabled = false;
         }
         
         if(isAnimated)
