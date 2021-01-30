@@ -7,13 +7,12 @@ public class NewBehaviourScript : MonoBehaviour
 
 	public List<Vector3> light_path; //Each angle where the light will turn
 	public bool recompute = true; //Whether the beam's trajectory is to be recomputed
-	public GameObject light_source, player;
+	public Vector3 source_direction; //Direction of the first light beam
 
 
     // Start is called before the first frame update
     void Start()
     {
-		//Find the light source
 
     }
 
@@ -24,17 +23,16 @@ public class NewBehaviourScript : MonoBehaviour
 		{
 			recompute = false;
 			light_path.Clear();
-			light_path.Add(light_source.transform.position);
+			light_path.Add(transform.position);
 
-			float dir = light_source.dir;
+			Vector3 dir = source_direction;
 			bool ray_absorbed = false;
-
 
 			do
 			{
 				//Find everything on the trajectory of the ray
 				RaycastHit[] hits;
-				hits = Physics.RaycastAll(light_path[-1], dir, 100.0F);
+				hits = Physics.RaycastAll(light_path[light_path.Count - 1], dir, 100.0F);
 
 				//Find the closest thing on the trajectory
 				float min_mag = Mathf.Infinity;
@@ -45,15 +43,15 @@ public class NewBehaviourScript : MonoBehaviour
 					RaycastHit hit = hits[i];
 					Transform tr = hit.transform;
 
-					if ( (tr - light_path[-1]).Magnitude() < min_mag)
+					if ( (tr.position - light_path[light_path.Count - 1]).magnitude < min_mag)
 					{
 						min_index = i;
-						min_mag = (tr - light_path[-1]).Magnitude();
+						min_mag = (tr.position - light_path[light_path.Count - 1]).magnitude;
 					}
 				}
 
 				//Stop the ray if it does not hit a mirror
-				if(GetComponent<Mirror>(hits[min_index].collider.gameObject) == null)
+				if(hits[min_index].collider.gameObject.GetComponent<Mirror>() == null)
 					ray_absorbed = true;
 				else //Make it bounce
 				{
@@ -61,17 +59,23 @@ public class NewBehaviourScript : MonoBehaviour
 					light_path.Add(hits[min_index].collider.transform.position);
 
 					//Find the new direction
-					Mirror mir = GetComponent<Mirror>(hits[min_index].collider.gameObject);
-					dir = Vector3.dot(dir, mir.d)*mir.d - Vector3.dot(dir, mir.n)*mir.n;
+					Mirror mir = hits[min_index].collider.gameObject.GetComponent<Mirror>();
+					dir = Vector3.Dot(dir, mir.d)*mir.d - Vector3.Dot(dir, mir.n)*mir.n;
 				}
 
 
-			} while (!ray_absorbed)
+				//Spawn the light ray
 
-			
+			} while (!ray_absorbed);
+	
 
 		}
-    }
 
-	void 
+		for( int i = 0; i < light_path.Count - 1; ++i )
+			Debug.DrawRay(light_path[i], 
+						light_path[i+1] - light_path[i], 
+						Color.yellow);
+
+
+    } 
 }
