@@ -7,6 +7,11 @@ public class Mirror : MonoBehaviour
     public Vector3 n;
     public Vector3 d;
 
+    public bool translatable = false;
+    public Vector3 transPos1, transPos2;
+    
+
+
     //Initializes variables
     void Awake()
     {
@@ -30,7 +35,7 @@ public class Mirror : MonoBehaviour
     {
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
         transform.rotation = rot*transform.rotation;
-        
+
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
     }
