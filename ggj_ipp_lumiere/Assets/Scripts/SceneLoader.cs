@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class contains all the methods to move though levels.
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
     public void LoadNextScene()

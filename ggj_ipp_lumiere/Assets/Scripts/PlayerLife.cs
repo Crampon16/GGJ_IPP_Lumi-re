@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class PlayerLife : MonoBehaviour
     [Range(0f, 0.1f)] public float fadeVel = 0.05f;
     public float deathLimit = 0.01f;
 
+    [SerializeField] AudioClip audioDeath;
+    SceneLoader sceneLoader;
+
     #endregion
 
     // Start is called before the first frame update
@@ -33,6 +37,9 @@ public class PlayerLife : MonoBehaviour
         // Set them to max initially
         currentPointIntensity = pointMaxIntensity;
         currentDirectionalIntensity = directionalMaxIntensity;
+
+        // Need it to start menu when we die
+        sceneLoader = FindObjectOfType<SceneLoader>();
 
     }
 
@@ -86,7 +93,18 @@ public class PlayerLife : MonoBehaviour
             // TODO: DIE EVENT
             // ===============
             //
+
+            // Play some clip and load start/game over scene with some delay
+            AudioSource.PlayClipAtPoint(audioDeath, Camera.main.transform.position);
+            Invoke("loadGameOver", 2f);
+
             // ===============
         }
+    }
+
+    public void loadGameOver()
+    {
+        Debug.Log("...now!");
+        sceneLoader.LoadStartScene();
     }
 }
