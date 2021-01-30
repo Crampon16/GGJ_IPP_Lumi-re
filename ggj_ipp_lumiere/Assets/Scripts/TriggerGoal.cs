@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TriggerGoal : MonoBehaviour
 {
     // Audio when we success
+    [Header("Audio Goal")]
     [SerializeField] AudioClip audioSuccess;
     SceneLoader sceneLoader;
 
@@ -19,7 +20,7 @@ public class TriggerGoal : MonoBehaviour
     /// Here we can detect when the character triggers certain object. We can detect which object is and execute anything based on it (go to next level, run an audio clip, etc...)
     /// </summary>
     /// <param name="other"></param>
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Name: " + other.gameObject.name);
 
