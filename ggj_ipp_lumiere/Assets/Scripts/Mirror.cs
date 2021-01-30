@@ -24,4 +24,14 @@ public class Mirror : MonoBehaviour
     {
         
     }
+
+    //Rotates the mirror by an angle of π/2
+    void Rotate()
+    {
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
+        transform.rotation = rot*transform.rotation;
+        
+        n = transform.rotation*Vector3.forward;
+        d = transform.rotation*Vector3.right;
+    }
 }
