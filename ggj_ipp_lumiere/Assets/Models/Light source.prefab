@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5281544080841472660}
   - component: {fileID: 5281544080841472661}
   - component: {fileID: 5281544080841472658}
-  - component: {fileID: 5281544080841472659}
   - component: {fileID: 5281544080841472656}
   m_Layer: 0
   m_Name: Light source
@@ -97,22 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5281544080841472659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5281544080841472657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e7fdc86acc647c8bfcc0c5aad38c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light_path: []
-  recompute: 1
-  source_direction: {x: 0, y: 0, z: 0}
-  lightBeamPrefab: {fileID: 0}
 --- !u!114 &5281544080841472656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light_path: []
-  recompute: 1
+  beams: []
   source_direction: {x: 0, y: 0, z: -1}
   lightBeamPrefab: {fileID: 194402300240450585, guid: 154768d0b5bfd44e7ae199f319e57b11, type: 3}
