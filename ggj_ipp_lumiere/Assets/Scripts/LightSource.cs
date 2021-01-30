@@ -6,6 +6,7 @@ public class LightSource : MonoBehaviour
 {
 
 	public List<Vector3> light_path; //Each angle where the light will turn
+	public List<GameObject> beams; //A reference to each beam, to destroy them when the time is needed
 	public Vector3 source_direction; //Direction of the first light beam
 	public GameObject lightBeamPrefab;
 
@@ -28,6 +29,10 @@ public class LightSource : MonoBehaviour
 		light_path.Clear();
 		light_path.Add(transform.position);
 
+		for(int i = 0; i < beams.Count; ++i)
+			Destroy(beams[i]);
+		beams.Clear();
+
 		Vector3 dir = source_direction;
 		bool ray_absorbed = false;
 
@@ -45,10 +50,16 @@ public class LightSource : MonoBehaviour
 				Vector3 pos = (light_path[light_path.Count - 1] + hit.point)/2;
 				Quaternion rot = Quaternion.FromToRotation(Vector3.forward, dir)
                                              * lightBeamPrefab.transform.rotation;
-				Instantiate(lightBeamPrefab, pos, rot);
+				GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
+				//Resize to look like a beam
+				float length_tf = (light_path[light_path.Count - 1] - hit.point).magnitude/2;
+				length_tf /= (length_tf + (float)0.5)/length_tf; //black magic, don't touch
+				beam.transform.localScale += Vector3.up * length_tf;
+				beam.transform.localScale -= ((float)9/10)*(Vector3.right + Vector3.forward);
 
-				//Add the new point
+				//Add the new point, and the beam to the list
 				light_path.Add(hit.point);
+				beams.Add(beam);
 
 				//Stop the ray if it does not hit a mirror
 				if (hit.collider.gameObject.GetComponent<Mirror>() == null)

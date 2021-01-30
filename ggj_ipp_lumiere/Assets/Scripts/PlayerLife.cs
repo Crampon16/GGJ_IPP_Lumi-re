@@ -9,6 +9,7 @@ public class PlayerLife : MonoBehaviour
 
     [Header("Options")]
     public bool resetLight;
+    public bool isDead = false;
 
     [Header("Light Components")]
     public Light pointLight;
@@ -41,6 +42,9 @@ public class PlayerLife : MonoBehaviour
 
         // Need it to start menu when we die
         sceneLoader = FindObjectOfType<SceneLoader>();
+
+        //Set alive
+        isDead = false;
 
     }
 
@@ -96,8 +100,11 @@ public class PlayerLife : MonoBehaviour
             //
 
             // Play some clip and load start/game over scene with some delay
-            AudioSource.PlayClipAtPoint(audioDeath, Camera.main.transform.position);
+            if (!isDead)
+                AudioSource.PlayClipAtPoint(audioDeath, Camera.main.transform.position);
+ 
             Invoke("loadGameOver", 3f);
+            isDead = true;
 
             // ===============
         }

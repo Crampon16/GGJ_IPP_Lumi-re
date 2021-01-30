@@ -1697,6 +1697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetLight: 0
+  isDead: 0
   pointLight: {fileID: 609532718}
   directionalLight: {fileID: 2043538020}
   pointMaxIntensity: 1
@@ -1705,7 +1706,7 @@ MonoBehaviour:
   currentDirectionalIntensity: 0
   fadeVel: 0.1
   deathLimit: 0.01
-  audioDeath: {fileID: 8300000, guid: 27ec42d1207f4d840bcd29a9e0b952e5, type: 3}
+  audioDeath: {fileID: 8300000, guid: c2b69436f6675ee40b979d3b05ef5978, type: 3}
 --- !u!114 &7216396668567201420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,7 +1719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51aae2a978b943148802980185b12e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSuccess: {fileID: 8300000, guid: c93b958792a70cd469342d165b26cd2b, type: 3}
+  audioSuccess: {fileID: 8300000, guid: 2ce0fdeed0b57db42b123886f9efdc7d, type: 3}
 --- !u!1 &6924378088454110743
 GameObject:
   m_ObjectHideFlags: 0
