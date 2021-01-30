@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +9,13 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     [Header("Movement Information")]
+    public bool activateRotation;
+
+    [Header("Movement Information")]
     public float InputX; // Range between -1 and 1 for horizontal axis (sides).
     public float InputZ; // Range between -1 and 1 for vertical axis (forward).
+    public Vector3 dir;
+    public float angle;
 
     [Header("Thresholds of movement")]
     public float Speed = 15f;
@@ -32,6 +38,17 @@ public class PlayerController : MonoBehaviour
     {
         // For Character controlling.
         InputMagnitude();
+
+        // Rotate towards mouse
+        if (activateRotation)
+            faceMouse();
+    }
+
+    void faceMouse()
+    {
+        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position); // Get world mouse position and set it with respect to character
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; // Get euler angle (being 0 the horizontal axis)
+        transform.rotation = Quaternion.AngleAxis(-angle + 90f, Vector3.up); // Rotate character wrt y-axis (had to set that offset to match the rotation of the character)
     }
 
     /// <summary>

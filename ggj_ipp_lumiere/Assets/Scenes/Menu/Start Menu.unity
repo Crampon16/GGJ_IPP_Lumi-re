@@ -226,14 +226,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4990600067691525222, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
-      propertyPath: m_text
-      value: Working Title
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754543282055058549, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fe4a7d80d35795947b307e597dd59418, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d74c67979a2984bb448a8145ecac74, type: 3}
 --- !u!1 &406696087
