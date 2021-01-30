@@ -77,7 +77,8 @@ public class GalileoController : MonoBehaviour
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * Speed);
         
-        this.transform.rotation = Quaternion.LookRotation(move);
+        if (move != Vector3.zero)
+            this.transform.rotation = Quaternion.LookRotation(move);
 
         animationSpeed = new Vector2(InputX, InputZ).sqrMagnitude;
         _anim.SetFloat("InputMagnitude", animationSpeed, 0.0f, Time.deltaTime);
