@@ -20,14 +20,15 @@ GAME MECHANICS
 
 //TODO:
 
-- get in touch with Unity (Guillaume, Liam)
+- get in touch with Unity (Guillaume, Liam) OK
 
 BASE
-- have a character that moves (along x xor y only at the beginning), with wall collisions
-- have a light that lights different areas
-- physics of the light ray guided by mirrors
-- interaction between player and mirrors
-- victory condition
+- have a character that moves (along x xor y only at the beginning), with wall collisions OK
+- have a light that lights different areas OK
+- physics of the light ray guided by mirrors OK
+- interaction between player and mirrors (rotating mirror and translating mirror)
+- victory condition (ray at the end --> unlocks the door)
+- bonus point condition (every crystal lighted up)
 
 
 
