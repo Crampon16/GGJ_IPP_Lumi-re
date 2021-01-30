@@ -10,11 +10,11 @@ public class PlayerLife : MonoBehaviour
     [Header("Options")]
     public bool resetLight;
 
-    [Header("Components")]
+    [Header("Light Components")]
     public Light pointLight;
     public Light directionalLight;
 
-    [Header("Properties")]
+    [Header("Light Properties")]
     public float pointMaxIntensity = 1f;
     public float directionalMaxIntensity = 2f;
     public float currentPointIntensity;
@@ -22,6 +22,7 @@ public class PlayerLife : MonoBehaviour
     [Range(0f, 0.1f)] public float fadeVel = 0.05f;
     public float deathLimit = 0.01f;
 
+    [Header("Audio Life")]
     [SerializeField] AudioClip audioDeath;
     SceneLoader sceneLoader;
 
@@ -84,7 +85,7 @@ public class PlayerLife : MonoBehaviour
         // If any of the lights gets lower than certain threshold
         if (pointLight.intensity < deathLimit || directionalLight.intensity < deathLimit)
         {
-            //Debug.Log("Died!");
+            Debug.Log("Died!");
 
             // Lights out
             pointLight.intensity = 0f;
@@ -96,7 +97,7 @@ public class PlayerLife : MonoBehaviour
 
             // Play some clip and load start/game over scene with some delay
             AudioSource.PlayClipAtPoint(audioDeath, Camera.main.transform.position);
-            Invoke("loadGameOver", 2f);
+            Invoke("loadGameOver", 3f);
 
             // ===============
         }

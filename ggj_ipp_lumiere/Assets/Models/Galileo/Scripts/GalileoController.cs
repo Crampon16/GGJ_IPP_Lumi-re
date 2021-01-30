@@ -20,6 +20,9 @@ public class GalileoController : MonoBehaviour
     [Header("Thresholds of movement")]
     public float Speed = 15f;
 
+    [Header("Light that turns")]
+    public Light directionalLight;
+
     public CharacterController _controller; // Contains controller and collider
     public Camera cam; // Camera
     public Animator _anim;
@@ -53,7 +56,8 @@ public class GalileoController : MonoBehaviour
     {
         dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position); // Get world mouse position and set it with respect to character
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; // Get euler angle (being 0 the horizontal axis)
-        transform.rotation = Quaternion.AngleAxis(-angle + 90f, Vector3.up); // Rotate character wrt y-axis (had to set that offset to match the rotation of the character)
+        //transform.rotation = Quaternion.AngleAxis(-angle + 90f, Vector3.up); // Rotate character wrt y-axis (had to set that offset to match the rotation of the character)
+        directionalLight.transform.rotation = Quaternion.AngleAxis(-angle + 90f, Vector3.up);
     }
 
     /// <summary>
@@ -72,6 +76,8 @@ public class GalileoController : MonoBehaviour
         // Uses the Character Controller API to move the player a Vector3
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * Speed);
+        
+        this.transform.rotation = Quaternion.LookRotation(move);
 
         animationSpeed = new Vector2(InputX, InputZ).sqrMagnitude;
         _anim.SetFloat("InputMagnitude", animationSpeed, 0.0f, Time.deltaTime);
