@@ -10,6 +10,10 @@ public class TriggerGoal : MonoBehaviour
     [SerializeField] AudioClip audioSuccess;
     SceneLoader sceneLoader;
 
+    [Header("Door")]
+    public GameObject door;
+    float t;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,12 @@ public class TriggerGoal : MonoBehaviour
             Invoke("loadNext", 2f);
 
             // ==========
+        }
+
+        else if (other.tag == "SwitchDoor")
+        {
+            Debug.Log("Opening door - PROVISIONAL");
+            door.transform.Translate(Vector3.forward * 10f);
         }
 
         // We can put here also actions when we hit an enemy (if tag == "Enemy"...)
