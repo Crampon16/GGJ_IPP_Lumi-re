@@ -340,7 +340,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.45
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1256,8 +1256,9 @@ GameObject:
   - component: {fileID: 1735042453}
   - component: {fileID: 1735042452}
   - component: {fileID: 1735042451}
-  - component: {fileID: 1735042455}
   - component: {fileID: 1735042456}
+  - component: {fileID: 1735042455}
+  - component: {fileID: 1735042457}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1465,6 +1466,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1735042457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735042450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962f373947f25b94993aa31081d22c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetLight: 0
+  pointLight: {fileID: 582503562}
+  directionalLight: {fileID: 1733459368}
+  pointMaxIntensity: 1
+  directionalMaxIntensity: 2
+  currentPointIntensity: 0
+  currentDirectionalIntensity: 0
+  fadeVel: 0.1
+  deathLimit: 0.01
 --- !u!1 &1792745170
 GameObject:
   m_ObjectHideFlags: 0
