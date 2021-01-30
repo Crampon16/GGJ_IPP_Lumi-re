@@ -78,6 +78,6 @@ public class LightSource : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Number of bounces: " + light_path.Count);
+		Debug.Log("Number of bounces: " + (light_path.Count - 1));
 	}
 }
