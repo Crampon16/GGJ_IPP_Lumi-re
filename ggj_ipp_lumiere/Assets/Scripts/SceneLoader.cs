@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoader : MonoBehaviour
 {
+    // Cached reference
+    GameSession gameStatus;
+
     public void LoadNextScene()
     {
         Debug.Log("Loading Next Scene");
@@ -19,6 +22,10 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("Loading Starting Scene");
         SceneManager.LoadScene(0);
+
+        // Reset game and score
+        gameStatus = FindObjectOfType<GameSession>();
+        gameStatus.ResetGame();
     }
 
     public int GetIndexLevel()
