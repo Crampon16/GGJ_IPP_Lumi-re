@@ -302,6 +302,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4551595149852894791, guid: 7a0e04f62c21b274791658c1aa0f1427, type: 3}
+      propertyPath: interact_range
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 609532718, guid: 7a0e04f62c21b274791658c1aa0f1427, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
@@ -3117,6 +3121,7 @@ MonoBehaviour:
   source_direction: {x: 1, y: 0, z: 0}
   lightBeamPrefab: {fileID: 194402300240450585, guid: 154768d0b5bfd44e7ae199f319e57b11, type: 3}
   isCrystalHit: 0
+  update: 0
   isExitDoorHit: 0
 --- !u!4 &1053463250 stripped
 Transform:

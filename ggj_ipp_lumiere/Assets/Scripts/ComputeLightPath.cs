@@ -45,18 +45,8 @@ public class NewBehaviourScript : MonoBehaviour
 
 					if ( (tr.position - light_path[light_path.Count - 1]).magnitude < min_mag)
 					{
-						if (hit.collider.gameObject.GetComponent<Diamondo>() != null)
-						{
-							print("Yes");
-							// if hit a diamondo
-							// don't consider it as a hit
-							// set isLight (in Animation Script) to True
-						}
-						else
-						{
-							min_index = i;
-							min_mag = (tr.position - light_path[light_path.Count - 1]).magnitude;
-						}
+						min_index = i;
+						min_mag = (tr.position - light_path[light_path.Count - 1]).magnitude;
 					}
 				}
 

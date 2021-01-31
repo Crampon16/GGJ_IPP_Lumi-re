@@ -69,6 +69,7 @@ public class LightSource : MonoBehaviour
 				// New - detect crytals
 				if (hit.transform.tag == "crystal")
                 {
+					print("crystal hit");
 					hit.transform.SendMessage("HitByRay");
 					isCrystalHit = true;
 				}
@@ -108,8 +109,8 @@ public class LightSource : MonoBehaviour
 				{
 					if (!isCrystalHit) //But continue if it is a crystal
 						ray_absorbed = true;
-					if(hit.collider.gameObject.GetComponent<RotateMirror>() == null) //or Galileo
-						ray_absorbed = true;
+					//if(hit.collider.gameObject.GetComponent<RotateMirror>() == null) //or Galileo
+					//	ray_absorbed = true;
 				}
 				else //Or make it bounce
 				{
