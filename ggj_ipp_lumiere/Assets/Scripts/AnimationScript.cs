@@ -35,6 +35,7 @@ public class AnimationScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        /*
         if (isLight)
         {
             GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
@@ -45,7 +46,7 @@ public class AnimationScript : MonoBehaviour {
         {
             GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
             GetComponentInChildren<Light>().enabled = false;
-        }
+        }*/
         
         if(isAnimated)
         {
