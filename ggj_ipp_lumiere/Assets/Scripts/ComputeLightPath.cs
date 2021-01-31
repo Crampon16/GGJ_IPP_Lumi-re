@@ -48,6 +48,9 @@ public class NewBehaviourScript : MonoBehaviour
 						if (hit.collider.gameObject.GetComponent<Diamondo>() != null)
 						{
 							print("Yes");
+							// if hit a diamondo
+							// don't consider it as a hit
+							// set isLight (in Animation Script) to True
 						}
 						else
 						{
