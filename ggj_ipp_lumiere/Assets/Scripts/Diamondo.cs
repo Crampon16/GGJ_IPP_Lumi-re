@@ -6,7 +6,7 @@ public class Diamondo : MonoBehaviour
 {
     Light crystalLight;
     LightSource lightSourceScript;
-    float defaultIntensity = 2.5f;
+    float defaultIntensity = 2.7f;
     bool crystalHit;
 
     // Start is called before the first frame update
@@ -37,6 +37,11 @@ public class Diamondo : MonoBehaviour
             GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
             GetComponentInChildren<Light>().enabled = true;
         }
+        else
+        {
+            GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+            GetComponentInChildren<Light>().enabled = false;
+        }
     }
 
     /// <summary>
@@ -46,7 +51,7 @@ public class Diamondo : MonoBehaviour
     {
         crystalHit = true;
         Debug.Log("I was hit by a Ray + crystalHit: " + crystalHit);
-        crystalLight.intensity = 8f;
+        // crystalLight.intensity = 8f;
 
         // Still needs to come back to default intensity if the ray does not hit!!!!
     }
