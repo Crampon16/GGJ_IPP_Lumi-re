@@ -5,8 +5,8 @@ using UnityEngine;
 public class RotateMirror : MonoBehaviour
 {
 
-public float interact_range;
-private GameObject light_source; 
+    public float interact_range;
+    private GameObject light_source; 
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ private GameObject light_source;
                 if (mir != null)
                 {
                     mir.Rotate();
-                    light_source.GetComponent<LightSource>().RecomputePath();
+                    light_source.GetComponent<LightSource>().PrepareRecomputePath();
                 }
             }
         }

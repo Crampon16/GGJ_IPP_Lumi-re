@@ -12,6 +12,7 @@ public class LightSource : MonoBehaviour
 
 	// Some bools to keep track of what we hit
 	public bool isCrystalHit;
+	public bool update = false;
 	public bool isExitDoorHit;
 
 	// Start is called before the first frame update
@@ -23,18 +24,32 @@ public class LightSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (update)
+		{
+			update = false;
+			RecomputePath();
+		}
+	
+		
+		//Draw the beam trajectory in debug mode
         for ( int i = light_path.Count - 1; i > 0; --i )
 			Debug.DrawLine(light_path[i], light_path[i-1], Color.yellow);
     } 
 
+	//Call this first because beams won't be destroyed until end of frame
+	public void PrepareRecomputePath()
+	{
+		update = true;
+		for(int i = 0; i < beams.Count; ++i)
+			Destroy(beams[i]);
+	}
 
-	public void RecomputePath()
+	void RecomputePath()
 	{
 		light_path.Clear();
 		light_path.Add(transform.position);
 
-		for(int i = 0; i < beams.Count; ++i)
-			Destroy(beams[i]);
+		
 		beams.Clear();
 
 		Vector3 dir = source_direction;
@@ -77,6 +92,7 @@ public class LightSource : MonoBehaviour
 				Quaternion rot = Quaternion.FromToRotation(Vector3.forward, dir)
                                              * lightBeamPrefab.transform.rotation;
 				GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
+				
 				//Resize to look like a beam
 				float length_tf = (light_path[light_path.Count - 1] - hit.point).magnitude/2;
 				length_tf /= (length_tf + (float)0.5)/length_tf; //black magic, don't touch
@@ -90,7 +106,9 @@ public class LightSource : MonoBehaviour
 				//Stop the ray if it does not hit a mirror
 				if (hit.collider.gameObject.GetComponent<Mirror>() == null)
 				{
-					if (!isCrystalHit)
+					if (!isCrystalHit) //But continue if it is a crystal
+						ray_absorbed = true;
+					if(hit.collider.gameObject.GetComponent<RotateMirror>() == null) //or Galileo
 						ray_absorbed = true;
 				}
 				else //Or make it bounce

@@ -35,7 +35,7 @@ public class Mirror : MonoBehaviour
     public void Rotate()
     {
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
-        transform.rotation = rot*transform.rotation;
+        transform.Rotate(0,90,0,Space.World);
 
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;

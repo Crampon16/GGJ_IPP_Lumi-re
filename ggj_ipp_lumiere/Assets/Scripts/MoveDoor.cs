@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveDoor : MonoBehaviour
 {
+    [SerializeField] AudioClip audioDoor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class MoveDoor : MonoBehaviour
     {
         Debug.Log("Opening Door");
         this.transform.Translate(Vector3.forward * 20f);
+        AudioSource.PlayClipAtPoint(audioDoor, Camera.main.transform.position);
 
         // Play sound? Move progressivelly?
     }
