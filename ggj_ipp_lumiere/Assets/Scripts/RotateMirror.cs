@@ -6,11 +6,12 @@ public class RotateMirror : MonoBehaviour
 {
 
 public float interact_range;
+private GameObject light_source; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       light_source = GameObject.Find("Light source");
     }
 
     // Update is called once per frame
@@ -30,7 +31,10 @@ public float interact_range;
                 //And if it hit a mirror
                 Mirror mir = hit.collider.gameObject.GetComponent<Mirror>();
                 if (mir != null)
+                {
                     mir.Rotate();
+                    light_source.GetComponent<LightSource>().RecomputePath();
+                }
             }
         }
     }

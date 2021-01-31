@@ -26,7 +26,7 @@ public class LightSource : MonoBehaviour
     } 
 
 
-	void RecomputePath()
+	public void RecomputePath()
 	{
 		light_path.Clear();
 		light_path.Add(transform.position);
