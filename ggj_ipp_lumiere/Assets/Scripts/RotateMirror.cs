@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateMirror : MonoBehaviour
 {
-
+    public GameObject mirror;
     public float interact_range;
     private GameObject light_source; 
 
@@ -17,6 +17,13 @@ public class RotateMirror : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            mirror = Resources.Load("Mirror") as GameObject;
+            print(transform.position);
+            Instantiate(mirror, transform.position, Quaternion.identity);
+        }*/
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Find the closest thing on the trajectory

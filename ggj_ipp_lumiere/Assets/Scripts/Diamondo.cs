@@ -50,7 +50,7 @@ public class Diamondo : MonoBehaviour
     void HitByRay()
     {
         crystalHit = true;
-        Debug.Log("I was hit by a Ray + crystalHit: " + crystalHit);
+        // Debug.Log("I was hit by a Ray + crystalHit: " + crystalHit);
         // crystalLight.intensity = 8f;
 
         // Still needs to come back to default intensity if the ray does not hit!!!!
