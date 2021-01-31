@@ -25,11 +25,11 @@ public class AnimationScript : MonoBehaviour {
     public float scaleRate;
     private float scaleTimer;
 
-    public bool isLight = false;  // if there is supposed to be light going through it
+    public bool isLight = true;  // if there is supposed to be light going through it
 
 	// Use this for initialization
 	void Start () {
-	
+        isLight = true;
 	}
 	
 	// Update is called once per frame
