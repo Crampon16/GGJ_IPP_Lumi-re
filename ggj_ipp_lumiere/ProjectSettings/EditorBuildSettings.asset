@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu/Start Menu.unity
+    path: Assets/Final Scenes/01-Menu/Start Menu.unity
     guid: 8499ed1be35f0cd4fa8dae5aeff6a800
   - enabled: 1
     path: Assets/Scenes/EduardoScene.unity
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EduardoScene-2.unity
     guid: b7b2e21531607374883bb05890a9637a
+  - enabled: 1
+    path: Assets/Scenes/EduardoScene-3.unity
+    guid: f985bba8a255b674c90964a797bacce1
   m_configObjects: {}
