@@ -1141,6 +1141,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (4)
@@ -1360,6 +1368,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (6)
@@ -1575,6 +1591,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (1)
@@ -1683,6 +1707,10 @@ PrefabInstance:
       propertyPath: isLight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 543816748651613373, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1696,6 +1724,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.68424
@@ -2227,6 +2263,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (5)
@@ -2664,6 +2708,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (3)
@@ -3064,6 +3116,8 @@ MonoBehaviour:
   beams: []
   source_direction: {x: 1, y: 0, z: 0}
   lightBeamPrefab: {fileID: 194402300240450585, guid: 154768d0b5bfd44e7ae199f319e57b11, type: 3}
+  isCrystalHit: 0
+  isExitDoorHit: 0
 --- !u!4 &1053463250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6293403789986731048, guid: fbe220b7b274c49cbbb9c9387a67c3de, type: 3}
@@ -3392,6 +3446,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495931025}
     m_Modifications:
+    - target: {fileID: 1390208696, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390208697, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo (2)
