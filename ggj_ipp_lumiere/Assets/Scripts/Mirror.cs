@@ -39,7 +39,5 @@ public class Mirror : MonoBehaviour
 
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
-
-        Debug.Log("I rotated.");
     }
 }

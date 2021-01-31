@@ -30,10 +30,7 @@ public float interact_range;
                 //And if it hit a mirror
                 Mirror mir = hit.collider.gameObject.GetComponent<Mirror>();
                 if (mir != null)
-                {
-                    Debug.Log("Hit a mirror.");
                     mir.Rotate();
-                }
             }
         }
     }

@@ -77,7 +77,10 @@ public class LightSource : MonoBehaviour
 
 				//Stop the ray if it does not hit a mirror
 				if (hit.collider.gameObject.GetComponent<Mirror>() == null)
-					ray_absorbed = true;
+				{
+					if (!isCrystalHit)
+						ray_absorbed = true;
+				}
 				else //Or make it bounce
 				{
 					//Find the new direction
