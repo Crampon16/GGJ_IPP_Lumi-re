@@ -22,6 +22,7 @@ public class Mirror : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -31,12 +32,14 @@ public class Mirror : MonoBehaviour
     }
 
     //Rotates the mirror by an angle of π/2
-    void Rotate()
+    public void Rotate()
     {
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, Vector3.right);
         transform.rotation = rot*transform.rotation;
 
         n = transform.rotation*Vector3.forward;
         d = transform.rotation*Vector3.right;
+
+        Debug.Log("I rotated.");
     }
 }
