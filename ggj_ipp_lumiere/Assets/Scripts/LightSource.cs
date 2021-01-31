@@ -70,6 +70,7 @@ public class LightSource : MonoBehaviour
 				// New - detect crytals
 				if (hit.transform.tag == "crystal")
                 {
+					print("crystal hit");
 					hit.transform.SendMessage("HitByRay");
 					isCrystalHit = true;
 				}
