@@ -12,11 +12,8 @@ public class LightSource : MonoBehaviour
 
 	// Some bools to keep track of what we hit
 	public bool isCrystalHit;
-<<<<<<< HEAD
 	public bool update = false;
-=======
 	public bool isExitDoorHit;
->>>>>>> c8cffbb957abbbe2ea01f5ac7724506d3ca638cd
 
 	// Start is called before the first frame update
 	void Start()
