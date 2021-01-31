@@ -39,9 +39,10 @@ public class LightSource : MonoBehaviour
 	//Call this first because beams won't be destroyed until end of frame
 	public void PrepareRecomputePath()
 	{
+		if (!update)
+			for(int i = 0; i < beams.Count; ++i)
+				Destroy(beams[i]);
 		update = true;
-		for(int i = 0; i < beams.Count; ++i)
-			Destroy(beams[i]);
 	}
 
 	void RecomputePath()
@@ -96,7 +97,7 @@ public class LightSource : MonoBehaviour
 				
 				//Resize to look like a beam
 				float length_tf = (light_path[light_path.Count - 1] - hit.point).magnitude/2;
-				length_tf /= (length_tf + (float)0.5)/length_tf; //black magic, don't touch
+				length_tf /= (length_tf + (float)1.5)/length_tf; //black magic, don't touch
 				beam.transform.localScale += Vector3.up * length_tf;
 				beam.transform.localScale -= ((float)9/10)*(Vector3.right + Vector3.forward);
 
@@ -107,10 +108,10 @@ public class LightSource : MonoBehaviour
 				//Stop the ray if it does not hit a mirror
 				if (hit.collider.gameObject.GetComponent<Mirror>() == null)
 				{
-					if (!isCrystalHit) //But continue if it is a crystal
+					//But continue if it is a crystal or Galileo
+					if ( (!isCrystalHit)
+					&& hit.collider.gameObject.GetComponent<RotateMirror>() == null) 
 						ray_absorbed = true;
-					//if(hit.collider.gameObject.GetComponent<RotateMirror>() == null) //or Galileo
-					//	ray_absorbed = true;
 				}
 				else //Or make it bounce
 				{
@@ -124,6 +125,10 @@ public class LightSource : MonoBehaviour
 				ray_absorbed = true;
 				light_path.Add(light_path[light_path.Count - 1] + dir * 100);
 			}
+
+			//Prevent infinite loops
+			if(beams.Count > 20)
+				ray_absorbed = true;
 		}
 
 		Debug.Log("Number of bounces: " + (light_path.Count - 1));
