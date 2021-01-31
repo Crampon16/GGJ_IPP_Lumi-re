@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5106022929659515155}
   - component: {fileID: 4875283860250351057}
   - component: {fileID: 790310152091350241}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

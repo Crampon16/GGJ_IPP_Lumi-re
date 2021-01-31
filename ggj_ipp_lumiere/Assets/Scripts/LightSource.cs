@@ -125,8 +125,9 @@ public class LightSource : MonoBehaviour
 				light_path.Add(light_path[light_path.Count - 1] + dir * 100);
 			}
 
-			if(beams.Count > 10)
-				Debug.Log("Infinite loop?");
+			//Prevent infinite loops
+			if(beams.Count > 20)
+				ray_absorbed = true;
 		}
 
 		Debug.Log("Number of bounces: " + (light_path.Count - 1));
