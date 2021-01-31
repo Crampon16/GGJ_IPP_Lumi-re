@@ -10,6 +10,8 @@ public class LightSource : MonoBehaviour
 	public Vector3 source_direction; //Direction of the first light beam
 	public GameObject lightBeamPrefab;
 
+	public bool isCrystalHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,18 @@ public class LightSource : MonoBehaviour
 			//If the ray hit
 			if (Physics.Raycast(ray, out hit, 100))
 			{
+
+				// New - detect crytals
+				if (hit.transform.tag == "crystal")
+                {
+					hit.transform.SendMessage("HitByRay");
+					isCrystalHit = true;
+				}
+				else
+                {
+					isCrystalHit = false;
+				}
+
 				//Spawn the beam of light
 				Vector3 pos = (light_path[light_path.Count - 1] + hit.point)/2;
 				Quaternion rot = Quaternion.FromToRotation(Vector3.forward, dir)
