@@ -5503,6 +5503,10 @@ PrefabInstance:
       propertyPath: d.z
       value: 0.707
       objectReference: {fileID: 0}
+    - target: {fileID: 1379001234108380092, guid: fbe220b7b274c49cbbb9c9387a67c3de, type: 3}
+      propertyPath: translatable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6293403789986731048, guid: fbe220b7b274c49cbbb9c9387a67c3de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
