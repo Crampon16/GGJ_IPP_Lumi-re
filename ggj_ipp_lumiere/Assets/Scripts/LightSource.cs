@@ -10,10 +10,12 @@ public class LightSource : MonoBehaviour
 	public Vector3 source_direction; //Direction of the first light beam
 	public GameObject lightBeamPrefab;
 
+	// Some bools to keep track of what we hit
 	public bool isCrystalHit;
+	public bool isExitDoorHit;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		RecomputePath();
     }
@@ -58,6 +60,16 @@ public class LightSource : MonoBehaviour
 				else
                 {
 					isCrystalHit = false;
+				}
+
+				if (hit.transform.tag == "ExitDoor")
+				{
+					hit.transform.SendMessage("OpenDoor");
+					isExitDoorHit = true;
+				}
+				else
+                {
+					isExitDoorHit = false;
 				}
 
 				//Spawn the beam of light

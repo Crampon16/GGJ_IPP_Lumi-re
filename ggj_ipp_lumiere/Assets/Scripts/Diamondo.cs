@@ -21,12 +21,22 @@ public class Diamondo : MonoBehaviour
 
         GameObject lightSource = GameObject.Find("Light source");
         lightSourceScript = lightSource.GetComponent<LightSource>();
+
+        //
+        
+        GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        GetComponentInChildren<Light>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("IS CRYSTAL HIT? " + lightSourceScript.isCrystalHit);
+
+        if (crystalHit)
+        {
+            GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+            GetComponentInChildren<Light>().enabled = true;
+        }
     }
 
     /// <summary>
