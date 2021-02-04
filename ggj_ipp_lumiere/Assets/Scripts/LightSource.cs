@@ -24,25 +24,28 @@ public class LightSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (update)
+		/*if (update)
 		{
 			update = false;
 			RecomputePath();
-		}
+		}*/
+		RecomputePath();
 	
 		
 		//Draw the beam trajectory in debug mode
         for ( int i = light_path.Count - 1; i > 0; --i )
 			Debug.DrawLine(light_path[i], light_path[i-1], Color.yellow);
+		PrepareRecomputePath();
+		print(beams[1].transform.position);
     } 
 
 	//Call this first because beams won't be destroyed until end of frame
 	public void PrepareRecomputePath()
 	{
-		if (!update)
-			for(int i = 0; i < beams.Count; ++i)
-				Destroy(beams[i]);
-		update = true;
+		//if (!update)
+		for(int i = 0; i < beams.Count; ++i)
+			Destroy(beams[i]);
+		// update = true;
 	}
 
 	void RecomputePath()
@@ -70,7 +73,7 @@ public class LightSource : MonoBehaviour
 				// New - detect crytals
 				if (hit.transform.tag == "crystal")
                 {
-					print("crystal hit");
+					// print("crystal hit");
 					hit.transform.SendMessage("HitByRay");
 					isCrystalHit = true;
 				}
@@ -89,21 +92,23 @@ public class LightSource : MonoBehaviour
 					isExitDoorHit = false;
 				}
 
-				//Spawn the beam of light
-				Vector3 pos = (light_path[light_path.Count - 1] + hit.point)/2;
-				Quaternion rot = Quaternion.FromToRotation(Vector3.forward, dir)
+                //Spawn the beam of light
+                /*Vector3 pos = (light_path[light_path.Count - 1] + hit.point) / 2;
+                Quaternion rot = Quaternion.FromToRotation(Vector3.forward, dir)
                                              * lightBeamPrefab.transform.rotation;
-				GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
-				
-				//Resize to look like a beam
-				float length_tf = (light_path[light_path.Count - 1] - hit.point).magnitude/2;
-				length_tf /= (length_tf + (float)1.5)/length_tf; //black magic, don't touch
-				beam.transform.localScale += Vector3.up * length_tf;
-				beam.transform.localScale -= ((float)9/10)*(Vector3.right + Vector3.forward);
+                GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
 
-				//Add the new point, and the beam to the list
-				light_path.Add(hit.point);
-				beams.Add(beam);
+                //Resize to look like a beam
+                float length_tf = (light_path[light_path.Count - 1] - hit.point).magnitude / 2;
+                length_tf /= (length_tf + (float)1.5) / length_tf; //black magic, don't touch
+                beam.transform.localScale += Vector3.up * length_tf;
+                beam.transform.localScale -= ((float)9 / 10) * (Vector3.right + Vector3.forward);
+
+                //Add the new point, and the beam to the list
+
+                beams.Add(beam);*/
+
+                light_path.Add(hit.point);
 
 				//Stop the ray if it does not hit a mirror
 				if (hit.collider.gameObject.GetComponent<Mirror>() == null)
@@ -127,10 +132,33 @@ public class LightSource : MonoBehaviour
 			}
 
 			//Prevent infinite loops
-			if(beams.Count > 20)
+			if(light_path.Count > 20)
 				ray_absorbed = true;
+
+
 		}
 
-		Debug.Log("Number of bounces: " + (light_path.Count - 1));
-	}
+		// print("light path count: "+light_path.Count);
+
+        for (int i = 0; i < light_path.Count-1; ++i)
+        {
+            //Spawn the beam of light
+            Vector3 pos = (light_path[i] + light_path[i + 1]) / 2;
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, light_path[i + 1] - light_path[i])
+                                         * lightBeamPrefab.transform.rotation;
+            GameObject beam = Instantiate(lightBeamPrefab, pos, rot);
+
+            //Resize to look like a beam
+            float length_tf = (light_path[i] - light_path[i + 1]).magnitude / 2;
+            length_tf /= (length_tf + (float)1.5) / length_tf; //black magic, don't touch
+            beam.transform.localScale += Vector3.up * length_tf;
+            beam.transform.localScale -= ((float)9 / 10) * (Vector3.right + Vector3.forward);
+
+            //Add the new point, and the beam to the list
+            //light_path.Add(hit.point);
+            beams.Add(beam);
+        }
+
+        //Debug.Log("Number of bounces: " + (light_path.Count - 1));
+    }
 }
